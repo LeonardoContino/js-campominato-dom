@@ -38,13 +38,6 @@ function getrandom(min, max, blacklist) {
 
   return randomNumber;
 }
-// creo i numeri compresi da numeri 1 a 100
-const bombs = [];
-for (let i = 0; i <= 16; i++) {
-  const bomb = getrandom(1, 100, bombs);
-  bombs.push(bomb);
-}
-console.log(bombs);
 
 const btn = document.getElementById("btn");
 const box = document.getElementById("map");
@@ -57,6 +50,14 @@ let score = 0;
 
 btn.addEventListener("click", function () {
   box.innerHTML = "";
+
+  // creo i numeri compresi da numeri 1 a 100
+  const bombs = [];
+  for (let i = 1; i <= 16; i++) {
+    const bomb = getrandom(1, 100, bombs);
+    bombs.push(bomb);
+  }
+  console.log(bombs);
 
   for (let i = 1; i <= total; i++) {
     const cell = createcell(i);
@@ -71,6 +72,10 @@ btn.addEventListener("click", function () {
         console.log(score);
       }
     });
+
+    if (cell === [bombs]) {
+      alert("hai perso");
+    }
 
     box.appendChild(cell);
   }

@@ -25,11 +25,8 @@ function createcell(num) {
   const cell = document.createElement("div");
   cell.append(num);
   cell.classList.add("cell");
-  box.appendChild(cell);
-  cell.addEventListener("click", function () {
-    cell.classList.add("clicked");
-    console.log(num);
-  });
+
+  return cell;
 }
 
 const btn = document.getElementById("btn");
@@ -39,9 +36,20 @@ const box = document.getElementById("map");
 const rows = 10;
 const cols = 10;
 const total = cols * rows;
+let score = 0;
+
 btn.addEventListener("click", function () {
   box.innerHTML = "";
-  for (i = 1; i <= total; i++) {
-    createcell((num = i));
+  for (let i = 1; i <= total; i++) {
+    const cell = createcell(i);
+
+    cell.addEventListener("click", function () {
+      cell.classList.add("clicked");
+      score++;
+      console.log(i);
+      console.log(score);
+    });
+
+    box.appendChild(cell);
   }
 });

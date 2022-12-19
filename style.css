@@ -1,0 +1,39 @@
+.header {
+  height: 80px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box {
+  background-color: RGB(127, 255, 211);
+  min-height: 800px;
+}
+.map {
+  height: 600px;
+  width: 600px;
+
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+.cell {
+  height: calc(100% / 10);
+  width: calc(100% / 10);
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.cell.clicked {
+  background-color: blue;
+}
+
+footer {
+  height: 80px;
+}
+footer p {
+  margin: 0;
+}

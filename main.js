@@ -46,8 +46,14 @@ btn.addEventListener("click", function () {
     cell.addEventListener("click", function () {
       cell.classList.add("clicked");
       score++;
-      console.log(i);
-      console.log(score);
+      let Isclicked = false;
+      if (!Isclicked) {
+        console.log(i);
+
+        console.log(score);
+      } else {
+        return;
+      }
     });
 
     box.appendChild(cell);

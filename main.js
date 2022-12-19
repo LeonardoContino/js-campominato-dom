@@ -28,6 +28,23 @@ function createcell(num) {
 
   return cell;
 }
+//funxione numero random
+
+function getrandom(min, max, blacklist) {
+  let randomNumber;
+  do {
+    randomNumber = Math.floor(Math.random() * (max + 1 - min)) + min;
+  } while (blacklist.includes(randomNumber));
+
+  return randomNumber;
+}
+// creo i numeri compresi da numeri 1 a 100
+const bombs = [];
+for (let i = 0; i <= 16; i++) {
+  const bomb = getrandom(1, 100, bombs);
+  bombs.push(bomb);
+}
+console.log(bombs);
 
 const btn = document.getElementById("btn");
 const box = document.getElementById("map");
@@ -40,19 +57,18 @@ let score = 0;
 
 btn.addEventListener("click", function () {
   box.innerHTML = "";
+
   for (let i = 1; i <= total; i++) {
     const cell = createcell(i);
 
     cell.addEventListener("click", function () {
-      cell.classList.add("clicked");
-      score++;
-      let Isclicked = false;
-      if (!Isclicked) {
-        console.log(i);
-
-        console.log(score);
-      } else {
+      if (cell.classList.contains("clicked")) {
         return;
+      } else {
+        cell.classList.add("clicked");
+        score++;
+        console.log(i);
+        console.log(score);
       }
     });
 

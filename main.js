@@ -38,7 +38,12 @@ function getrandom(min, max, blacklist) {
 
   return randomNumber;
 }
-
+const gameOver = (score, hasHitBomb) => {
+  const message = hasHitBomb
+    ? `hai perso! hai totalizzato punti ${score}`
+    : `hai vinto! il tuo punteggio è ${score}`;
+  alert(message);
+};
 const btn = document.getElementById("btn");
 const box = document.getElementById("map");
 const point = document.getElementById("point");
@@ -77,7 +82,7 @@ btn.addEventListener("click", function () {
       const hasHitBomb = bombs.includes(parseInt(cell.innerText));
       if (hasHitBomb) {
         cell.classList.add("bombs");
-        console.log(`hai perso hai totalizzato punti ${score}`);
+        gameOver(score, hasHitBomb);
       } else {
         score++;
         console.log(i);
@@ -85,7 +90,7 @@ btn.addEventListener("click", function () {
         point.innerText = `score : ${score}`;
         //verifico la vittoria
         if (score === maxpoint) {
-          console.log(`hai vinto! il tuo punteggio è ${score}`);
+          gameOver(score, hasHitBomb);
         }
       }
     });

@@ -59,6 +59,8 @@ btn.addEventListener("click", function () {
   }
   console.log(bombs);
 
+  const maxpoint = total - bombs;
+
   for (let i = 1; i <= total; i++) {
     const cell = createcell(i);
 
@@ -66,15 +68,20 @@ btn.addEventListener("click", function () {
       if (cell.classList.contains("clicked")) {
         return;
       }
+
+      //metto classe clicked
       cell.classList.add("clicked");
 
+      //controllo bomba
       const hasHitBomb = bombs.includes(parseInt(cell.innerText));
-      if (hashitboms) {
-        cell.classList.contains("bombs");
+      if (hasHitBomb) {
+        cell.classList.add("bombs");
+        console.log(`hai perso hai totalizzato punti ${score}`);
+      } else {
+        score++;
+        console.log(i);
+        console.log(score);
       }
-      score++;
-      console.log(i);
-      console.log(score);
     });
 
     box.appendChild(cell);

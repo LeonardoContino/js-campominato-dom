@@ -30,7 +30,7 @@
 .cell.clicked {
   background-color: blue;
 }
-.cell.bombs {
+.cell.clicked.bombs {
   background-color: red;
 }
 footer {

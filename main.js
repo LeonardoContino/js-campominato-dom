@@ -41,6 +41,7 @@ function getrandom(min, max, blacklist) {
 
 const btn = document.getElementById("btn");
 const box = document.getElementById("map");
+const point = document.getElementById("point");
 
 // variabili iniziali
 const rows = 10;
@@ -81,6 +82,11 @@ btn.addEventListener("click", function () {
         score++;
         console.log(i);
         console.log(score);
+        point.innerText = `score : ${score}`;
+        //verifico la vittoria
+        if (score === maxpoint) {
+          console.log(`hai vinto! il tuo punteggio è ${score}`);
+        }
       }
     });
 

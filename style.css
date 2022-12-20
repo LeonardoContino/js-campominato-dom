@@ -30,7 +30,9 @@
 .cell.clicked {
   background-color: blue;
 }
-
+.cell.bombs {
+  background-color: red;
+}
 footer {
   height: 80px;
 }

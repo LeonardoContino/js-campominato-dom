@@ -65,17 +65,17 @@ btn.addEventListener("click", function () {
     cell.addEventListener("click", function () {
       if (cell.classList.contains("clicked")) {
         return;
-      } else {
-        cell.classList.add("clicked");
-        score++;
-        console.log(i);
-        console.log(score);
       }
-    });
+      cell.classList.add("clicked");
 
-    if (cell === [bombs]) {
-      alert("hai perso");
-    }
+      const hasHitBomb = bombs.includes(parseInt(cell.innerText));
+      if (hashitboms) {
+        cell.classList.contains("bombs");
+      }
+      score++;
+      console.log(i);
+      console.log(score);
+    });
 
     box.appendChild(cell);
   }
